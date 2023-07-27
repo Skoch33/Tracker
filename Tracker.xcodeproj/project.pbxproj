@@ -57,11 +57,19 @@
 				376A183D2A72717E008CBFE7 /* AppDelegate.swift */,
 				376A183F2A72717E008CBFE7 /* SceneDelegate.swift */,
 				376A18412A72717E008CBFE7 /* ViewController.swift */,
-				376A18462A727180008CBFE7 /* Assets.xcassets */,
-				376A18482A727180008CBFE7 /* LaunchScreen.storyboard */,
+				376A18512A727598008CBFE7 /* Helpers */,
 				376A184B2A727180008CBFE7 /* Info.plist */,
 			);
 			path = Tracker;
+			sourceTree = "<group>";
+		};
+		376A18512A727598008CBFE7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				376A18462A727180008CBFE7 /* Assets.xcassets */,
+				376A18482A727180008CBFE7 /* LaunchScreen.storyboard */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
