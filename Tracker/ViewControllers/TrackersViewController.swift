@@ -49,6 +49,7 @@ final class TrackersViewController: UIViewController {
         let view = UISearchBar()
         view.placeholder = "Поиск"
         view.searchBarStyle = .minimal
+        view.delegate = self
         return view
     }()
     
@@ -74,6 +75,56 @@ final class TrackersViewController: UIViewController {
         return stack
     }()
     
+    private lazy var collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.backgroundColor = .ypWhiteDay
+        view.register(
+            TrackerCell.self,
+            forCellWithReuseIdentifier: TrackerCell.identifier
+        )
+        view.register(
+            TrackerCategoryNames.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "header"
+        )
+        return view
+    }()
+    
+    //MARK: - Properties
+    
+    private var searchText = ""
+    private var currentDate = Date()
+    private let params = UICollectionView.GeometricParams(cellCount: 2, leftInset: 16, rightInset: 16, cellSpacing: 10)
+    private var categories: [TrackerCategory] = TrackerCategory.mockData
+    private var visibleCategories: [TrackerCategory] {
+        let weekday = Calendar.current.component(.weekday, from: currentDate)
+        
+        var result = [TrackerCategory]()
+        for category in categories {
+            let trackersByDay = category.trackers.filter { tracker in
+                guard let schedule = tracker.schedule else { return true }
+                return schedule.contains(WeekDay.allCases[weekday > 1 ? weekday - 2 : weekday + 5])
+            }
+            if searchText.isEmpty && !trackersByDay.isEmpty {
+                result.append(TrackerCategory(label: category.label, trackers: trackersByDay))
+            } else {
+                let filteredTrackers = trackersByDay.filter { tracker in
+                    tracker.label.lowercased().contains(searchText.lowercased())
+                }
+                
+                if !filteredTrackers.isEmpty {
+                    result.append(TrackerCategory(label: category.label, trackers: filteredTrackers))
+                }
+            }
+        }
+        if result.isEmpty {
+            stackView.isHidden = true
+        } else {
+            stackView.isHidden = false
+        }
+        return result
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -87,11 +138,15 @@ final class TrackersViewController: UIViewController {
     
     @objc
     private func didTapPlusButton() {
-        print("Plus tapped")
+        let setTrackersViewController = SetTrackersViewController()
+        setTrackersViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: setTrackersViewController)
+        present(navigationController, animated: true)
     }
 }
 
     //MARK: - Layout methods
+
 private extension TrackersViewController {
     func configureView() {
         view.backgroundColor = .ypWhiteDay
@@ -100,6 +155,7 @@ private extension TrackersViewController {
         view.addSubview(datePicker)
         view.addSubview(searchBar)
         view.addSubview(stackView)
+        view.addSubview(collectionView)
         stackView.addArrangedSubview(starIcon)
         stackView.addArrangedSubview(questionlabel)
         
@@ -110,6 +166,7 @@ private extension TrackersViewController {
         starIcon.translatesAutoresizingMaskIntoConstraints = false
         questionlabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func configureConstraints() {
@@ -124,7 +181,24 @@ private extension TrackersViewController {
             searchBar.topAnchor.constraint(equalTo: tittleLabel.bottomAnchor),
             searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 45),
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            collectionView.leadingAnchor.constraint(equalTo:  view.safeAreaLayoutGuide.leadingAnchor),
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+}
+
+    // MARK: - AddTrackerViewControllerDelegate
+
+extension TrackersViewController: SetTrackersViewControllerDelegate {
+    func didSelectTracker(with type: SetTrackersViewController.TrackerType) {
+    }
+}
+
+    // MARK: - UISearchBarDelegate
+extension TrackersViewController: UISearchBarDelegate {
+    
+    
 }
