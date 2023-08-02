@@ -16,6 +16,7 @@
 		37A795F02A77DA680015CE16 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A795EF2A77DA680015CE16 /* StatisticsViewController.swift */; };
 		37A795F32A77DBAE0015CE16 /* Colors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A795F22A77DBAE0015CE16 /* Colors+Extension.swift */; };
 		37A795F52A77E4A40015CE16 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A795F42A77E4A40015CE16 /* Emoji.swift */; };
+		37A795F72A7A60090015CE16 /* SetTrackersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A795F62A7A60090015CE16 /* SetTrackersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		37A795EF2A77DA680015CE16 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		37A795F22A77DBAE0015CE16 /* Colors+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extension.swift"; sourceTree = "<group>"; };
 		37A795F42A77E4A40015CE16 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		37A795F62A7A60090015CE16 /* SetTrackersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				37A795ED2A77DA500015CE16 /* TapBarViewController.swift */,
 				376A18412A72717E008CBFE7 /* TrackersViewController.swift */,
 				37A795EF2A77DA680015CE16 /* StatisticsViewController.swift */,
+				37A795F62A7A60090015CE16 /* SetTrackersViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				37A795F02A77DA680015CE16 /* StatisticsViewController.swift in Sources */,
 				376A183E2A72717E008CBFE7 /* AppDelegate.swift in Sources */,
 				37A795F32A77DBAE0015CE16 /* Colors+Extension.swift in Sources */,
+				37A795F72A7A60090015CE16 /* SetTrackersViewController.swift in Sources */,
 				37A795F52A77E4A40015CE16 /* Emoji.swift in Sources */,
 				37A795EE2A77DA500015CE16 /* TapBarViewController.swift in Sources */,
 				376A18402A72717E008CBFE7 /* SceneDelegate.swift in Sources */,
