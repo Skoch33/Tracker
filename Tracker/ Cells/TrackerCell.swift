@@ -54,12 +54,20 @@ final class TrackerCell: UICollectionViewCell {
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.cornerRadius = 17
+        button.addTarget(self, action: #selector(didTapAddDayButton), for: .touchUpInside)
         return button
     }()
     
     // MARK: - Properties
     
     static let identifier = "TrackerCell"
+    weak var delegate: TrackerCellDelegate?
+    private var tracker: Tracker?
+    private var days = 0 {
+        willSet {
+            daysCountLabel.text = "\(newValue.days())"
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -74,15 +82,53 @@ final class TrackerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        tracker = nil
+        days = 0
+        addDayButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addDayButton.layer.opacity = 1
+    }
+    
     // MARK: - Methods
     
     func configure(with tracker: Tracker, days: Int, isCompleted: Bool) {
+        self.tracker = tracker
+        self.days = days
         cardView.backgroundColor = tracker.color
         emoji.text = tracker.emoji
         trackerLabel.text = tracker.label
         addDayButton.backgroundColor = tracker.color
+        switchAddDayButton(to: isCompleted)
+    }
+    
+    func switchAddDayButton(to isCompleted: Bool) {
+        if isCompleted {
+            addDayButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+            addDayButton.layer.opacity = 0.3
+        } else {
+            addDayButton.setImage(UIImage(systemName: "plus"), for: .normal)
+            addDayButton.layer.opacity = 1
+        }
+    }
+    
+    func increaseCount() {
+        days += 1
+    }
+    
+    func decreaseCount() {
+        days -= 1
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    private func didTapAddDayButton() {
+        guard let tracker else { return }
+        delegate?.didTapCompleteButton(of: self, with: tracker)
     }
 }
+
     // MARK: - Layout methods
 
 private extension TrackerCell {

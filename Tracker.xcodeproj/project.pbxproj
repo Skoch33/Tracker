@@ -27,6 +27,7 @@
 		37A7960E2A7A71900015CE16 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */; };
 		37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */; };
 		37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */; };
+		37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Int+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */,
 				37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */,
 				37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */,
+				37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				37A7960E2A7A71900015CE16 /* UICollectionView+Extension.swift in Sources */,
 				37A7960C2A7A70F10015CE16 /* MockData+Extension.swift in Sources */,
+				37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */,
 				376A18422A72717E008CBFE7 /* TrackersViewController.swift in Sources */,
 				37A795F02A77DA680015CE16 /* StatisticsViewController.swift in Sources */,
 				376A183E2A72717E008CBFE7 /* AppDelegate.swift in Sources */,

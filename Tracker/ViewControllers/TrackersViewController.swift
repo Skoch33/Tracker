@@ -35,6 +35,7 @@ final class TrackersViewController: UIViewController {
         datePicker.preferredDatePickerStyle = .compact
         datePicker.locale = Locale(identifier: "ru_RU")
         datePicker.calendar = Calendar(identifier: .iso8601)
+        datePicker.addTarget(self, action: #selector(didChangedDatePicker), for: .valueChanged)
         return datePicker
     }()
     
@@ -61,6 +62,16 @@ final class TrackersViewController: UIViewController {
              return view
          }()
     
+    private lazy var filterButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Фильтры", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        button.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        button.layer.cornerRadius = 16
+        button.backgroundColor = .ypBlue
+        return button
+    }()
+    
     //MARK: - Properties
     
     private let mainSpacePlaceholderStack = UIStackView()
@@ -76,16 +87,30 @@ final class TrackersViewController: UIViewController {
     private var completedTrackers: Set<TrackerRecord> = []
     private var searchText = ""
     private var visibleCategories: [TrackerCategory] {
-        guard !searchText.isEmpty else {
-            return categories
-        }
+        let weekday = Calendar.current.component(.weekday, from: currentDate)
+        
         var result = [TrackerCategory]()
         for category in categories {
-            let filteredTrackers = category.trackers.filter { $0.label.contains(searchText) }
-            
-            if !filteredTrackers.isEmpty {
-                result.append(TrackerCategory(label: category.label, trackers: filteredTrackers))
+            let trackersByDay = category.trackers.filter { tracker in
+                guard let schedule = tracker.schedule else { return true }
+                return schedule.contains(WeekDay.allCases[weekday > 1 ? weekday - 2 : weekday + 5])
             }
+            if searchText.isEmpty && !trackersByDay.isEmpty {
+                result.append(TrackerCategory(label: category.label, trackers: trackersByDay))
+            } else {
+                let filteredTrackers = trackersByDay.filter { tracker in
+                    tracker.label.lowercased().contains(searchText.lowercased())
+                }
+                
+                if !filteredTrackers.isEmpty {
+                    result.append(TrackerCategory(label: category.label, trackers: filteredTrackers))
+                }
+            }
+        }
+        if result.isEmpty {
+            filterButton.isHidden = true
+        } else {
+            filterButton.isHidden = false
         }
         return result
     }
@@ -118,6 +143,12 @@ final class TrackersViewController: UIViewController {
         present(navigationController, animated: true)
     }
     
+    @objc
+    private func didChangedDatePicker(_ sender: UIDatePicker) {
+        currentDate = Date.from(date: sender.date)!
+        collectionView.reloadData()
+    }
+    
     // MARK: - Methods
     
     private func checkMainPlaceholderVisability() {
@@ -136,7 +167,7 @@ final class TrackersViewController: UIViewController {
 private extension TrackersViewController {
     func configureViews() {
         view.backgroundColor = .ypWhiteDay
-        [trackerLabel, addButton, datePicker, searchBar, collectionView, mainSpacePlaceholderStack, searchSpacePlaceholderStack].forEach { view.addSubview($0) }
+        [trackerLabel, addButton, datePicker, searchBar, collectionView, mainSpacePlaceholderStack, searchSpacePlaceholderStack, filterButton].forEach { view.addSubview($0) }
         
         addButton.translatesAutoresizingMaskIntoConstraints = false
         trackerLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -145,6 +176,7 @@ private extension TrackersViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         mainSpacePlaceholderStack.translatesAutoresizingMaskIntoConstraints = false
         searchSpacePlaceholderStack.translatesAutoresizingMaskIntoConstraints = false
+        filterButton.translatesAutoresizingMaskIntoConstraints = false
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -170,7 +202,11 @@ private extension TrackersViewController {
             mainSpacePlaceholderStack.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.495),
             mainSpacePlaceholderStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             searchSpacePlaceholderStack.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.495),
-            searchSpacePlaceholderStack.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            searchSpacePlaceholderStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            filterButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            filterButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            filterButton.widthAnchor.constraint(equalToConstant: 114),
+            filterButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
@@ -297,3 +333,20 @@ extension TrackersViewController: UISearchBarDelegate {
          checkPlaceholderVisabilityAfterSearch()
      }
 }
+
+     // MARK: - TrackerCellDelegate
+ extension TrackersViewController: TrackerCellDelegate {
+     func didTapCompleteButton(of cell: TrackerCell, with tracker: Tracker) {
+         let trackerRecord = TrackerRecord(trackerId: tracker.id, date: currentDate)
+
+         if completedTrackers.contains(where: { $0.date == currentDate && $0.trackerId == tracker.id }) {
+             completedTrackers.remove(trackerRecord)
+             cell.switchAddDayButton(to: false)
+             cell.decreaseCount()
+         } else {
+             completedTrackers.insert(trackerRecord)
+             cell.switchAddDayButton(to: true)
+             cell.increaseCount()
+         }
+     }
+ }
