@@ -25,6 +25,8 @@
 		37A796092A7A6D890015CE16 /* TrackerCategoryNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A796082A7A6D890015CE16 /* TrackerCategoryNames.swift */; };
 		37A7960C2A7A70F10015CE16 /* MockData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A7960B2A7A70F10015CE16 /* MockData+Extension.swift */; };
 		37A7960E2A7A71900015CE16 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */; };
+		37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */; };
+		37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		37A796082A7A6D890015CE16 /* TrackerCategoryNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCategoryNames.swift; sourceTree = "<group>"; };
 		37A7960B2A7A70F10015CE16 /* MockData+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockData+Extension.swift"; sourceTree = "<group>"; };
 		37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 				37A795F22A77DBAE0015CE16 /* Colors+Extension.swift */,
 				37A7960B2A7A70F10015CE16 /* MockData+Extension.swift */,
 				37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */,
+				37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */,
+				37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -226,12 +232,14 @@
 				376A18422A72717E008CBFE7 /* TrackersViewController.swift in Sources */,
 				37A795F02A77DA680015CE16 /* StatisticsViewController.swift in Sources */,
 				376A183E2A72717E008CBFE7 /* AppDelegate.swift in Sources */,
+				37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */,
 				37A796012A7A6ACA0015CE16 /* TrackerRecord.swift in Sources */,
 				37A795FC2A7A6A820015CE16 /* Tracker.swift in Sources */,
 				37A796072A7A6D760015CE16 /* TrackerCell.swift in Sources */,
 				37A795FE2A7A6A970015CE16 /* TrackerCategory.swift in Sources */,
 				37A796032A7A6AD50015CE16 /* WeekDay.swift in Sources */,
 				37A795F32A77DBAE0015CE16 /* Colors+Extension.swift in Sources */,
+				37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */,
 				37A795F72A7A60090015CE16 /* SetTrackersViewController.swift in Sources */,
 				37A795F52A77E4A40015CE16 /* Emoji.swift in Sources */,
 				37A796092A7A6D890015CE16 /* TrackerCategoryNames.swift in Sources */,
