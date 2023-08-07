@@ -30,6 +30,10 @@
 		37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */; };
 		37DD6FBD2A80DD5000258601 /* WeekdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBC2A80DD5000258601 /* WeekdayCell.swift */; };
 		37DD6FBF2A80DE0F00258601 /* ListOfItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBE2A80DE0F00258601 /* ListOfItems.swift */; };
+		37DD6FC12A80DF1600258601 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC02A80DF1600258601 /* ScheduleViewController.swift */; };
+		37DD6FC32A80DF8F00258601 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC22A80DF8F00258601 /* ListCell.swift */; };
+		37DD6FC52A80DFFA00258601 /* TrackerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC42A80DFFA00258601 /* TrackerTextField.swift */; };
+		37DD6FC72A80E03200258601 /* TrackerFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Int+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FBC2A80DD5000258601 /* WeekdayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayCell.swift; sourceTree = "<group>"; };
 		37DD6FBE2A80DE0F00258601 /* ListOfItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfItems.swift; sourceTree = "<group>"; };
+		37DD6FC02A80DF1600258601 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		37DD6FC22A80DF8F00258601 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		37DD6FC42A80DFFA00258601 /* TrackerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTextField.swift; sourceTree = "<group>"; };
+		37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerFormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +128,8 @@
 				376A18412A72717E008CBFE7 /* TrackersViewController.swift */,
 				37A795EF2A77DA680015CE16 /* StatisticsViewController.swift */,
 				37A795F62A7A60090015CE16 /* SetTrackersViewController.swift */,
+				37DD6FC02A80DF1600258601 /* ScheduleViewController.swift */,
+				37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -141,6 +151,7 @@
 			children = (
 				37A796062A7A6D760015CE16 /* TrackerCell.swift */,
 				37DD6FBC2A80DD5000258601 /* WeekdayCell.swift */,
+				37DD6FC22A80DF8F00258601 /* ListCell.swift */,
 			);
 			path = " Cells";
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				37A796082A7A6D890015CE16 /* TrackerCategoryNames.swift */,
+				37DD6FC42A80DFFA00258601 /* TrackerTextField.swift */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -245,10 +257,13 @@
 				37A795F02A77DA680015CE16 /* StatisticsViewController.swift in Sources */,
 				376A183E2A72717E008CBFE7 /* AppDelegate.swift in Sources */,
 				37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */,
+				37DD6FC72A80E03200258601 /* TrackerFormViewController.swift in Sources */,
+				37DD6FC12A80DF1600258601 /* ScheduleViewController.swift in Sources */,
 				37A796012A7A6ACA0015CE16 /* TrackerRecord.swift in Sources */,
 				37A795FC2A7A6A820015CE16 /* Tracker.swift in Sources */,
 				37A796072A7A6D760015CE16 /* TrackerCell.swift in Sources */,
 				37A795FE2A7A6A970015CE16 /* TrackerCategory.swift in Sources */,
+				37DD6FC32A80DF8F00258601 /* ListCell.swift in Sources */,
 				37A796032A7A6AD50015CE16 /* WeekDay.swift in Sources */,
 				37A795F32A77DBAE0015CE16 /* Colors+Extension.swift in Sources */,
 				37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */,
@@ -256,6 +271,7 @@
 				37A795F52A77E4A40015CE16 /* Emoji.swift in Sources */,
 				37A796092A7A6D890015CE16 /* TrackerCategoryNames.swift in Sources */,
 				37A795EE2A77DA500015CE16 /* TapBarViewController.swift in Sources */,
+				37DD6FC52A80DFFA00258601 /* TrackerTextField.swift in Sources */,
 				376A18402A72717E008CBFE7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
