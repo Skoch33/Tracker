@@ -223,6 +223,8 @@ import UIKit
 
          parametersTableView.dataSource = self
          parametersTableView.delegate = self
+         
+         textField.delegate = self
 
          view.backgroundColor = .ypWhiteDay
          
@@ -317,3 +319,12 @@ extension TrackerFormViewController: UITableViewDelegate {
             dismiss(animated: true)
         }
     }
+
+// MARK: - UITextFieldDelegate
+
+extension TrackerFormViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
