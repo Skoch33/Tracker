@@ -28,6 +28,8 @@
 		37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */; };
 		37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */; };
 		37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */; };
+		37DD6FBD2A80DD5000258601 /* WeekdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBC2A80DD5000258601 /* WeekdayCell.swift */; };
+		37DD6FBF2A80DE0F00258601 /* ListOfItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBE2A80DE0F00258601 /* ListOfItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Int+Extension.swift"; sourceTree = "<group>"; };
+		37DD6FBC2A80DD5000258601 /* WeekdayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayCell.swift; sourceTree = "<group>"; };
+		37DD6FBE2A80DE0F00258601 /* ListOfItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 				37A795FD2A7A6A970015CE16 /* TrackerCategory.swift */,
 				37A796002A7A6ACA0015CE16 /* TrackerRecord.swift */,
 				37A796022A7A6AD50015CE16 /* WeekDay.swift */,
+				37DD6FBE2A80DE0F00258601 /* ListOfItems.swift */,
 			);
 			path = UIHelpers;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				37A796062A7A6D760015CE16 /* TrackerCell.swift */,
+				37DD6FBC2A80DD5000258601 /* WeekdayCell.swift */,
 			);
 			path = " Cells";
 			sourceTree = "<group>";
@@ -232,6 +238,8 @@
 			files = (
 				37A7960E2A7A71900015CE16 /* UICollectionView+Extension.swift in Sources */,
 				37A7960C2A7A70F10015CE16 /* MockData+Extension.swift in Sources */,
+				37DD6FBF2A80DE0F00258601 /* ListOfItems.swift in Sources */,
+				37DD6FBD2A80DD5000258601 /* WeekdayCell.swift in Sources */,
 				37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */,
 				376A18422A72717E008CBFE7 /* TrackersViewController.swift in Sources */,
 				37A795F02A77DA680015CE16 /* StatisticsViewController.swift in Sources */,
