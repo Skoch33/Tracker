@@ -18,6 +18,7 @@ import UIKit
      private lazy var textField: UITextField = {
          let textField = TextField(placeholder: "Введите название трекера")
          textField.addTarget(self, action: #selector(didChangedLabelTextField), for: .editingChanged)
+         textField.tintColor = .ypBlue
          return textField
      }()
      

@@ -23,7 +23,6 @@
 		37A796032A7A6AD50015CE16 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A796022A7A6AD50015CE16 /* WeekDay.swift */; };
 		37A796072A7A6D760015CE16 /* TrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A796062A7A6D760015CE16 /* TrackerCell.swift */; };
 		37A796092A7A6D890015CE16 /* TrackerCategoryNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A796082A7A6D890015CE16 /* TrackerCategoryNames.swift */; };
-		37A7960C2A7A70F10015CE16 /* MockData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A7960B2A7A70F10015CE16 /* MockData+Extension.swift */; };
 		37A7960E2A7A71900015CE16 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */; };
 		37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */; };
 		37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */; };
@@ -34,6 +33,7 @@
 		37DD6FC32A80DF8F00258601 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC22A80DF8F00258601 /* ListCell.swift */; };
 		37DD6FC52A80DFFA00258601 /* TrackerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC42A80DFFA00258601 /* TrackerTextField.swift */; };
 		37DD6FC72A80E03200258601 /* TrackerFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */; };
+		37DD6FCA2A80ECEF00258601 /* MockData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC92A80ECEF00258601 /* MockData+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,6 @@
 		37A796022A7A6AD50015CE16 /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
 		37A796062A7A6D760015CE16 /* TrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCell.swift; sourceTree = "<group>"; };
 		37A796082A7A6D890015CE16 /* TrackerCategoryNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCategoryNames.swift; sourceTree = "<group>"; };
-		37A7960B2A7A70F10015CE16 /* MockData+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockData+Extension.swift"; sourceTree = "<group>"; };
 		37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		37DD6FC22A80DF8F00258601 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		37DD6FC42A80DFFA00258601 /* TrackerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTextField.swift; sourceTree = "<group>"; };
 		37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerFormViewController.swift; sourceTree = "<group>"; };
+		37DD6FC92A80ECEF00258601 /* MockData+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockData+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,11 +169,11 @@
 			isa = PBXGroup;
 			children = (
 				37A795F22A77DBAE0015CE16 /* Colors+Extension.swift */,
-				37A7960B2A7A70F10015CE16 /* MockData+Extension.swift */,
 				37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */,
 				37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */,
 				37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */,
 				37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */,
+				37DD6FC92A80ECEF00258601 /* MockData+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -249,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				37A7960E2A7A71900015CE16 /* UICollectionView+Extension.swift in Sources */,
-				37A7960C2A7A70F10015CE16 /* MockData+Extension.swift in Sources */,
 				37DD6FBF2A80DE0F00258601 /* ListOfItems.swift in Sources */,
 				37DD6FBD2A80DD5000258601 /* WeekdayCell.swift in Sources */,
 				37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */,
@@ -269,6 +268,7 @@
 				37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */,
 				37A795F72A7A60090015CE16 /* SetTrackersViewController.swift in Sources */,
 				37A795F52A77E4A40015CE16 /* Emoji.swift in Sources */,
+				37DD6FCA2A80ECEF00258601 /* MockData+Extension.swift in Sources */,
 				37A796092A7A6D890015CE16 /* TrackerCategoryNames.swift in Sources */,
 				37A795EE2A77DA500015CE16 /* TapBarViewController.swift in Sources */,
 				37DD6FC52A80DFFA00258601 /* TrackerTextField.swift in Sources */,

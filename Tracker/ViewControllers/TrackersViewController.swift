@@ -43,6 +43,7 @@ final class TrackersViewController: UIViewController {
         let view = UISearchBar()
         view.placeholder = "Поиск"
         view.searchBarStyle = .minimal
+        view.tintColor = .ypBlue
         view.delegate = self
         return view
     }()
@@ -212,8 +213,9 @@ private extension TrackersViewController {
 }
 
     //MARK: - UICollectionViewDelegate
- extension TrackersViewController: UICollectionViewDelegate {
- }
+extension TrackersViewController: UICollectionViewDelegate {
+    
+}
 
     // MARK: - UICollectionViewDataSource
 extension TrackersViewController: UICollectionViewDataSource {
@@ -234,6 +236,7 @@ extension TrackersViewController: UICollectionViewDataSource {
         let daysCount = completedTrackers.filter { $0.trackerId == tracker.id }.count
         let isCompleted = completedTrackers.contains { $0.date == currentDate && $0.trackerId == tracker.id }
         trackerCell.configure(with: tracker, days: daysCount, isCompleted: isCompleted)
+        trackerCell.delegate = self
         return trackerCell
     }
 }
@@ -306,11 +309,33 @@ extension TrackersViewController: UICollectionViewDelegateFlowLayout {
 
 extension TrackersViewController: SetTrackersViewControllerDelegate {
     func didSelectTracker(with type: SetTrackersViewController.TrackerType) {
+        dismiss(animated: true)
+        let trackerFormViewController = TrackerFormViewController(type: type)
+        trackerFormViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: trackerFormViewController)
+        present(navigationController, animated: true)
     }
 }
 
-    // MARK: - UISearchBarDelegate
-extension TrackersViewController: UISearchBarDelegate {
+extension TrackersViewController: TrackerFormViewControllerDelegate {
+    func didTapConfirmButton(categoryLabel: String, trackerToAdd: Tracker) {
+        dismiss(animated: true)
+        guard let categoryIndex = categories.firstIndex(where: { $0.label == categoryLabel }) else { return }
+        let updatedCategory = TrackerCategory(
+            label: categoryLabel,
+            trackers: categories[categoryIndex].trackers + [trackerToAdd]
+        )
+        categories[categoryIndex] = updatedCategory
+        collectionView.reloadData()
+    }
+    
+    func didTapCancelButton() {
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - UISearchBarDelegate
+ extension TrackersViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         checkPlaceholderVisabilityAfterSearch()
         searchBar.setShowsCancelButton(true, animated: true)
