@@ -34,6 +34,9 @@
 		37DD6FC52A80DFFA00258601 /* TrackerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC42A80DFFA00258601 /* TrackerTextField.swift */; };
 		37DD6FC72A80E03200258601 /* TrackerFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */; };
 		37DD6FCA2A80ECEF00258601 /* MockData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FC92A80ECEF00258601 /* MockData+Extension.swift */; };
+		37EBD87C2A8CCD24005DE684 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EBD87A2A8CCD24005DE684 /* Model.xcdatamodeld */; };
+		37EBD87E2A8CCE44005DE684 /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBD87D2A8CCE44005DE684 /* EmojiCell.swift */; };
+		37EBD8802A8CD4D7005DE684 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBD87F2A8CD4D7005DE684 /* ColorCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		37DD6FC42A80DFFA00258601 /* TrackerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTextField.swift; sourceTree = "<group>"; };
 		37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerFormViewController.swift; sourceTree = "<group>"; };
 		37DD6FC92A80ECEF00258601 /* MockData+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockData+Extension.swift"; sourceTree = "<group>"; };
+		37EBD87B2A8CCD24005DE684 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		37EBD87D2A8CCE44005DE684 /* EmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
+		37EBD87F2A8CD4D7005DE684 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				37A795EC2A77DA160015CE16 /* ViewControllers */,
+				37EBD8792A8CCD0D005DE684 /* CoreData */,
 				37A795FF2A7A6A9E0015CE16 /* UIHelpers */,
 				37A796052A7A6D120015CE16 /* Tracker */,
 				37A796042A7A6CF70015CE16 /*  Cells */,
@@ -152,6 +159,8 @@
 				37A796062A7A6D760015CE16 /* TrackerCell.swift */,
 				37DD6FBC2A80DD5000258601 /* WeekdayCell.swift */,
 				37DD6FC22A80DF8F00258601 /* ListCell.swift */,
+				37EBD87D2A8CCE44005DE684 /* EmojiCell.swift */,
+				37EBD87F2A8CD4D7005DE684 /* ColorCell.swift */,
 			);
 			path = " Cells";
 			sourceTree = "<group>";
@@ -176,6 +185,15 @@
 				37DD6FC92A80ECEF00258601 /* MockData+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		37EBD8792A8CCD0D005DE684 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				37EBD87A2A8CCD24005DE684 /* Model.xcdatamodeld */,
+			);
+			name = CoreData;
+			path = ViewControllers/CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +275,11 @@
 				376A183E2A72717E008CBFE7 /* AppDelegate.swift in Sources */,
 				37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */,
 				37DD6FC72A80E03200258601 /* TrackerFormViewController.swift in Sources */,
+				37EBD8802A8CD4D7005DE684 /* ColorCell.swift in Sources */,
+				37EBD87E2A8CCE44005DE684 /* EmojiCell.swift in Sources */,
 				37DD6FC12A80DF1600258601 /* ScheduleViewController.swift in Sources */,
 				37A796012A7A6ACA0015CE16 /* TrackerRecord.swift in Sources */,
+				37EBD87C2A8CCD24005DE684 /* Model.xcdatamodeld in Sources */,
 				37A795FC2A7A6A820015CE16 /* Tracker.swift in Sources */,
 				37A796072A7A6D760015CE16 /* TrackerCell.swift in Sources */,
 				37A795FE2A7A6A970015CE16 /* TrackerCategory.swift in Sources */,
@@ -486,6 +507,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37EBD87A2A8CCD24005DE684 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37EBD87B2A8CCD24005DE684 /* Model.xcdatamodel */,
+			);
+			currentVersion = 37EBD87B2A8CCD24005DE684 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 376A18322A72717E008CBFE7 /* Project object */;
 }
