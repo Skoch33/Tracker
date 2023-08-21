@@ -212,6 +212,7 @@ import UIKit
              label: data.label,
              emoji: emoji,
              color: color,
+             endedDaysCount: 0,
              schedule: data.schedule
          )
          delegate?.didTapConfirmButton(categoryLabel: category, trackerToAdd: newTracker)
@@ -291,7 +292,7 @@ import UIKit
 
      func configureConstraints() {
          validationMessageHeightConstraint = validationMessage.heightAnchor.constraint(equalToConstant: 0)
-         parametersTableViewTopConstraint = parametersTableView.topAnchor.constraint(equalTo: validationMessage.bottomAnchor, constant: 16)
+         parametersTableViewTopConstraint = parametersTableView.topAnchor.constraint(equalTo: validationMessage.bottomAnchor, constant: 4)
          validationMessageHeightConstraint?.isActive = true
          parametersTableViewTopConstraint?.isActive = true
 
@@ -306,7 +307,7 @@ import UIKit
             contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
             textField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            textField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
+            textField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             textField.heightAnchor.constraint(equalToConstant: ListOfItems.height),
             validationMessage.centerXAnchor.constraint(equalTo: textField.centerXAnchor),
@@ -315,7 +316,7 @@ import UIKit
             parametersTableView.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
             parametersTableView.heightAnchor.constraint(equalToConstant: data.schedule == nil ? ListOfItems.height : 2 *  ListOfItems.height),
             emojisCollection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            emojisCollection.topAnchor.constraint(equalTo: parametersTableView.bottomAnchor, constant: 32),
+            emojisCollection.topAnchor.constraint(equalTo: parametersTableView.bottomAnchor, constant: 24),
             emojisCollection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             emojisCollection.heightAnchor.constraint(equalToConstant: CGFloat(emojis.count) / geoparams.cellCount * geoparams.height + 18 + geoparams.topInset + geoparams.bottomInset),
             colorsCollection.leadingAnchor.constraint(equalTo: emojisCollection.leadingAnchor),
