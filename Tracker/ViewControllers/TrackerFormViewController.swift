@@ -9,7 +9,7 @@ import UIKit
 
  protocol TrackerFormViewControllerDelegate: AnyObject {
      func didTapCancelButton()
-     func didTapConfirmButton(categoryLabel: String, trackerToAdd: Tracker)
+     func didTapConfirmButton(category: TrackerCategory, trackerToAdd: Tracker)
  }
 
  final class TrackerFormViewController: UIViewController {
@@ -107,13 +107,14 @@ import UIKit
      
      weak var delegate: TrackerFormViewControllerDelegate?
      private let type: SetTrackersViewController.TrackerType
+     private let trackerCategoryStore = TrackerCategoryStore()
      private var data: Tracker.Data {
          didSet {
              checkFromValidation()
          }
      }
      
-     private var category: String? = TrackerCategory.mockData[0].label {
+     private lazy var category: TrackerCategory? = trackerCategoryStore.categories.randomElement() {
          didSet {
              checkFromValidation()
          }
@@ -215,7 +216,7 @@ import UIKit
              endedDaysCount: 0,
              schedule: data.schedule
          )
-         delegate?.didTapConfirmButton(categoryLabel: category, trackerToAdd: newTracker)
+         delegate?.didTapConfirmButton(category: category, trackerToAdd: newTracker)
      }
 
      // MARK: - Methods
@@ -353,10 +354,10 @@ import UIKit
 
          if data.schedule == nil {
              position = .alone
-             value = category
+             value = category?.label
          } else {
              position = indexPath.row == 0 ? .first : .last
-             value = indexPath.row == 0 ? category : scheduleString
+             value = indexPath.row == 0 ? category?.label : scheduleString
          }
 
          listCell.configure(label: parameters[indexPath.row], value: value, position: position)
