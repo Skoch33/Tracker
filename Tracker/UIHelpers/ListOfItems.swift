@@ -70,5 +70,5 @@ extension ListOfItems {
     enum Position {
         case first, middle, last, alone
     }
-    static let height: CGFloat = 75
+    static let height: CGFloat = 65
 }
