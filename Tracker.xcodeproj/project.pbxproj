@@ -24,6 +24,8 @@
 		37A796072A7A6D760015CE16 /* TrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A796062A7A6D760015CE16 /* TrackerCell.swift */; };
 		37A796092A7A6D890015CE16 /* TrackerCategoryNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A796082A7A6D890015CE16 /* TrackerCategoryNames.swift */; };
 		37A7960E2A7A71900015CE16 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */; };
+		37B552782AA3324D0006E3B0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B552772AA3324D0006E3B0 /* OnboardingViewController.swift */; };
+		37B5527A2AA332C10006E3B0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B552792AA332C10006E3B0 /* OnboardingPageViewController.swift */; };
 		37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */; };
 		37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */; };
 		37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */; };
@@ -62,6 +64,8 @@
 		37A796062A7A6D760015CE16 /* TrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCell.swift; sourceTree = "<group>"; };
 		37A796082A7A6D890015CE16 /* TrackerCategoryNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCategoryNames.swift; sourceTree = "<group>"; };
 		37A7960D2A7A71900015CE16 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		37B552772AA3324D0006E3B0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		37B552792AA332C10006E3B0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Int+Extension.swift"; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				37A795F62A7A60090015CE16 /* SetTrackersViewController.swift */,
 				37DD6FC02A80DF1600258601 /* ScheduleViewController.swift */,
 				37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */,
+				37B552772AA3324D0006E3B0 /* OnboardingViewController.swift */,
+				37B552792AA332C10006E3B0 /* OnboardingPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 				37A795F02A77DA680015CE16 /* StatisticsViewController.swift in Sources */,
 				376A183E2A72717E008CBFE7 /* AppDelegate.swift in Sources */,
 				37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */,
+				37B5527A2AA332C10006E3B0 /* OnboardingPageViewController.swift in Sources */,
 				37DD6FC72A80E03200258601 /* TrackerFormViewController.swift in Sources */,
 				37EBD8802A8CD4D7005DE684 /* ColorCell.swift in Sources */,
 				37EBD87E2A8CCE44005DE684 /* EmojiCell.swift in Sources */,
@@ -302,6 +309,7 @@
 				37A795F72A7A60090015CE16 /* SetTrackersViewController.swift in Sources */,
 				37A795F52A77E4A40015CE16 /* Emoji.swift in Sources */,
 				37A796092A7A6D890015CE16 /* TrackerCategoryNames.swift in Sources */,
+				37B552782AA3324D0006E3B0 /* OnboardingViewController.swift in Sources */,
 				37EBD8842A937E55005DE684 /* TrackerCategoryStore.swift in Sources */,
 				37A795EE2A77DA500015CE16 /* TapBarViewController.swift in Sources */,
 				37DD6FC52A80DFFA00258601 /* TrackerTextField.swift in Sources */,
