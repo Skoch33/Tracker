@@ -29,6 +29,7 @@
 		37B5527C2AA739CE0006E3B0 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5527B2AA739CE0006E3B0 /* CategoriesViewModel.swift */; };
 		37B5527E2AA73A6C0006E3B0 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5527D2AA73A6C0006E3B0 /* CategoryCell.swift */; };
 		37B552802AA73C420006E3B0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5527F2AA73C420006E3B0 /* CategoriesViewController.swift */; };
+		37B552822AA786C10006E3B0 /* CategoryFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B552812AA786C10006E3B0 /* CategoryFormViewController.swift */; };
 		37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */; };
 		37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */; };
 		37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */; };
@@ -72,6 +73,7 @@
 		37B5527B2AA739CE0006E3B0 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		37B5527D2AA73A6C0006E3B0 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		37B5527F2AA73C420006E3B0 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		37B552812AA786C10006E3B0 /* CategoryFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFormViewController.swift; sourceTree = "<group>"; };
 		37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Int+Extension.swift"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				37B552792AA332C10006E3B0 /* OnboardingPageViewController.swift */,
 				37B5527B2AA739CE0006E3B0 /* CategoriesViewModel.swift */,
 				37B5527F2AA73C420006E3B0 /* CategoriesViewController.swift */,
+				37B552812AA786C10006E3B0 /* CategoryFormViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				37EBD8822A937E48005DE684 /* TrackerStore.swift in Sources */,
 				376A18422A72717E008CBFE7 /* TrackersViewController.swift in Sources */,
 				37A795F02A77DA680015CE16 /* StatisticsViewController.swift in Sources */,
+				37B552822AA786C10006E3B0 /* CategoryFormViewController.swift in Sources */,
 				376A183E2A72717E008CBFE7 /* AppDelegate.swift in Sources */,
 				37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */,
 				37B5527C2AA739CE0006E3B0 /* CategoriesViewModel.swift in Sources */,

@@ -21,9 +21,12 @@ import UIKit
          table.separatorStyle = .none
          table.allowsMultipleSelection = false
          table.backgroundColor = .clear
+         table.isScrollEnabled = true
          table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
          return table
      }()
+     
+     private let starCombined = UIStackView()
 
      private lazy var addButton: UIButton = {
          let button = UIButton()
@@ -57,13 +60,46 @@ import UIKit
          configureConstraints()
          viewModel.delegate = self
          viewModel.loadCategories()
+         starCombined.configurePlaceholderStack(imageName: "StarIcon", text: """
+         Привычки и события можно
+         объединить по смыслу
+         """)
      }
 
 // MARK: - Actions
      
      @objc
      private func didTapAddButton() {
-         viewModel.didTapButton()
+         let addCategoryViewController = CategoryFormViewController()
+         addCategoryViewController.delegate = self
+         let navigationController = UINavigationController(rootViewController: addCategoryViewController)
+         present(navigationController, animated: true)
+     }
+     
+// MARK: - Private
+     
+     private func editCategory(_ category: TrackerCategory) {
+         let addCategoryViewController = CategoryFormViewController(data: category.data)
+         addCategoryViewController.delegate = self
+         let navigationController = UINavigationController(rootViewController: addCategoryViewController)
+         present(navigationController, animated: true)
+     }
+
+     private func deleteCategory(_ category: TrackerCategory) {
+         let alert = UIAlertController(
+             title: nil,
+             message: "Эта категория точно не нужна?",
+             preferredStyle: .actionSheet
+         )
+         let cancelAction = UIAlertAction(title: "Отменить", style: .cancel)
+         let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { [weak self] _ in
+             self?.viewModel.deleteCategory(category)
+         }
+
+         alert.addAction(deleteAction)
+         alert.addAction(cancelAction)
+
+         present(alert, animated: true)
      }
  }
 
@@ -73,13 +109,14 @@ import UIKit
      func configureViews() {
          title = "Категория"
          view.backgroundColor = .ypWhiteDay
-         [categoriesView, addButton].forEach { view.addSubview($0) }
+         [categoriesView, addButton, starCombined].forEach { view.addSubview($0) }
 
          categoriesView.dataSource = self
          categoriesView.delegate = self
 
          categoriesView.translatesAutoresizingMaskIntoConstraints = false
          addButton.translatesAutoresizingMaskIntoConstraints = false
+         starCombined.translatesAutoresizingMaskIntoConstraints = false
      }
 
      func configureConstraints() {
@@ -92,6 +129,9 @@ import UIKit
              addButton.trailingAnchor.constraint(equalTo: categoriesView.trailingAnchor),
              addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
              addButton.heightAnchor.constraint(equalToConstant: 60),
+             starCombined.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+             starCombined.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+             starCombined.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
          ])
      }
  }
@@ -141,17 +181,40 @@ import UIKit
  extension CategoriesViewController: CategoriesViewModelDelegate {
      func didUpdateCategories() {
          if viewModel.categories.isEmpty {
-             addButton.setTitle("Добавить категорию", for: .normal)
+             starCombined.isHidden = false
          } else {
-             addButton.setTitle("Готово", for: .normal)
+             starCombined.isHidden = true
          }
-     }
-
-     func didSelectCategory() {
          categoriesView.reloadData()
      }
-
-     func didConfirm(_ category: TrackerCategory) {
+     
+     func didSelectCategory(_ category: TrackerCategory) {
          delegate?.didConfirm(category)
+     }
+     
+     func tableView(
+         _ tableView: UITableView,
+         contextMenuConfigurationForRowAt indexPath: IndexPath,
+         point: CGPoint
+     ) -> UIContextMenuConfiguration? {
+         let category = viewModel.categories[indexPath.row]
+         
+         return UIContextMenuConfiguration(actionProvider:  { _ in
+             UIMenu(children: [
+                 UIAction(title: "Редактировать") { [weak self] _ in
+                     self?.editCategory(category)
+                 },
+                 UIAction(title: "Удалить", attributes: .destructive) { [weak self] _ in
+                     self?.deleteCategory(category)
+                 }
+             ])
+         })
+     }
+ }
+
+ extension CategoriesViewController: CategoryFormViewControllerDelegate {
+     func didConfirm(_ data: TrackerCategory.Data) {
+         viewModel.handleCategoryFormConfirm(data: data)
+         dismiss(animated: true)
      }
  }
