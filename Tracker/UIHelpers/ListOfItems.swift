@@ -8,7 +8,8 @@
 import UIKit
 
 final class ListOfItems: UIView {
-    // MARK: - Layout elements
+    
+// MARK: - Layout elements
 
     private let border: UIView = {
         let view = UIView()
@@ -17,7 +18,8 @@ final class ListOfItems: UIView {
         return view
     }()
 
-    // MARK: - Lifecycle
+// MARK: - Lifecycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -27,8 +29,9 @@ final class ListOfItems: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Methods
-    func configure(with position: Position = .middle) {
+// MARK: - Methods
+    
+    func configure(with position: Position) {
         layer.masksToBounds = true
         layer.cornerRadius = 10
 
@@ -42,12 +45,19 @@ final class ListOfItems: UIView {
         case .last:
             layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         case .alone:
-            break
+            border.isHidden = true
+            layer.maskedCorners = [
+                .layerMinXMaxYCorner,
+                .layerMaxXMaxYCorner,
+                .layerMinXMinYCorner,
+                .layerMaxXMinYCorner
+            ]
         }
     }
 }
-// MARK: - EXTENSIONS
+
 //MARK: - Layout methods
+
 extension ListOfItems {
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
