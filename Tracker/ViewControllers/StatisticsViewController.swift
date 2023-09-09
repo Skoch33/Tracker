@@ -13,7 +13,7 @@ final class StatisticViewController: UIViewController {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Статистика"
+        label.text = (NSLocalizedString("StatisticViewController.title", comment: ""))
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         return label
     }()
@@ -27,7 +27,7 @@ final class StatisticViewController: UIViewController {
     private let emptyLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        label.text = "Анализировать пока нечего"
+        label.text = (NSLocalizedString("StatisticViewController.nothingToAnalyze", comment: ""))
         label.textColor = .ypBlackDay
         return label
     }()

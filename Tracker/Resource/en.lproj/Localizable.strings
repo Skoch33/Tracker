@@ -23,3 +23,15 @@
 "friday_SHORT" = "Fri";
 "saturday_SHORT" = "Sat";
 "sunday_SHORT" = "Sun";
+
+// TrackersViewController
+"TrackersViewController.title" = "Trackers";
+"TrackersViewController.search" = "Search";
+"TrackersViewController.whatWeWillTrace" = "What will we track?";
+"TrackersViewController.filters" = "Filters";
+"TrackersViewController.nothingFound" = "Nothing found";
+"TrackersViewController.datePicker" = "en_GB";
+
+// StatisticViewController
+"StatisticViewController.title" = "Statistics";
+"StatisticViewController.nothingToAnalyze" = "Nothing to analyze";
