@@ -35,3 +35,37 @@
 // StatisticViewController
 "StatisticViewController.title" = "Статистика";
 "StatisticViewController.nothingToAnalyze" = "Анализировать пока нечего";
+
+//OnboardingViewController
+"OnboardingViewController.firstPage" = "Отслеживайте только то, что хотите";
+"OnboardingViewController.secondPage" = "Даже если это не литры воды и йога";
+"OnboardingViewController.enterButton" = "Вот это технологии!";
+
+//SetTrackersViewController
+"SetTrackersViewController.habitButton" = "Привычка";
+"SetTrackersViewController.irregularEventButton" = "Нерегулярное событие";
+"SetTrackersViewController.parameter1" = "Категория";
+"SetTrackersViewController.parameter2" = "Расписание";
+"SetTrackersViewController.didTapHabitButton" = "Новая привычка";
+"SetTrackersViewController.didTapIrregularEventButton" = "Новое нерегулярное событие";
+"SetTrackersViewController.configureViews" = "Создание трекера";
+
+//TrackerFormViewController
+"TrackerFormViewController.textField" = "Введите название трекера";
+"TrackerFormViewController.validationMessage" = "Ограничение 38 символов";
+"TrackerFormViewController.cancel" = "Отменить";
+"TrackerFormViewController.confirmButton" = "Создать";
+"TrackerFormViewController.scheduleString" = "Каждый день";
+"TrackerFormViewController.emoji" = "Эмоджи";
+"TrackerFormViewController.color" = "Цвет";
+
+//SetCategoriesViewController
+"SetCategoriesViewController.addButton" = "Добавить категорию";
+"SetCategoriesViewController.starCombined" = "Привычки и события можно \n объединить по смыслу";
+"SetCategoriesViewController.deleteCategory" = "Эта категория точно не нужна?";
+"SetCategoriesViewController.delete" = "Удалить";
+"SetCategoriesViewController.edit" = "Редактировать";
+
+//CategoryFormViewController
+"CategoryFormViewController.textField" = "Введите название категории";
+"CategoryFormViewController.configureView" = "Новая категория";

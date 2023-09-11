@@ -17,7 +17,7 @@ import UIKit
      // MARK: - Layout elements
      
      private lazy var textField: UITextField = {
-         let textField = TextField(placeholder: "Введите название трекера")
+         let textField = TextField(placeholder: NSLocalizedString("TrackerFormViewController.textField", comment: "Enter tracker name"))
          textField.addTarget(self, action: #selector(didChangedLabelTextField), for: .editingChanged)
          textField.tintColor = .ypBlue
          return textField
@@ -27,7 +27,7 @@ import UIKit
          let label = UILabel()
          label.font = UIFont.systemFont(ofSize: 17)
          label.textColor = .ypRed
-         label.text = "Ограничение 38 символов"
+         label.text = NSLocalizedString("TrackerFormViewController.validationMessage", comment: "38 character limit")
          return label
      }()
      
@@ -41,7 +41,7 @@ import UIKit
      
      private lazy var cancelButton: UIButton = {
          let button = makeButton()
-         button.setTitle("Отменить", for: .normal)
+         button.setTitle(NSLocalizedString("TrackerFormViewController.cancel", comment: "Cancel"), for: .normal)
          button.setTitleColor(.ypRed, for: .normal)
          button.backgroundColor = .white
          button.layer.borderWidth = 1
@@ -52,7 +52,7 @@ import UIKit
      
      private lazy var confirmButton: UIButton = {
          let button = makeButton()
-         button.setTitle("Создать", for: .normal)
+         button.setTitle(NSLocalizedString("TrackerFormViewController.confirmButton", comment: "Create"), for: .normal)
          button.setTitleColor(.ypWhiteDay, for: .normal)
          button.backgroundColor = .ypGray
          button.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
@@ -122,7 +122,7 @@ import UIKit
      
      private var scheduleString: String? {
          guard let schedule = data.schedule else { return nil }
-         if schedule.count == WeekDay.allCases.count { return "Каждый день" }
+         if schedule.count == WeekDay.allCases.count { return NSLocalizedString("TrackerFormViewController.scheduleString", comment: "Every day") }
          let shortForms: [String] = schedule.map { $0.shortForm }
          return shortForms.joined(separator: ", ")
      }
@@ -154,7 +154,7 @@ import UIKit
      
      private var validationMessageHeightConstraint: NSLayoutConstraint?
      private var parametersTableViewTopConstraint: NSLayoutConstraint?
-     private let parameters = ["Категория", "Расписание"]
+     private let parameters = [NSLocalizedString("SetTrackersViewController.parameter1", comment: "Category"), NSLocalizedString("SetTrackersViewController.parameter2", comment: "Schedule")]
      private let emojis = emojisArray
      private let colors = UIColor.colorSelections
      private let geoparams = UICollectionView.GeometricParams(cellCount: 6, leftInset: 28, rightInset: 28, topInset: 24, bottomInset: 24, height: 52, cellSpacing: 5)
@@ -256,8 +256,8 @@ import UIKit
  private extension TrackerFormViewController {
      func configureViews() {
          switch type {
-         case .habit: title = "Новая привычка"
-         case .irregularEvent: title = "Новое нерегулярное событие"
+         case .habit: title = NSLocalizedString("SetTrackersViewController.didTapHabitButton", comment: "New habit")
+         case .irregularEvent: title = NSLocalizedString("SetTrackersViewController.didTapIrregularEventButton", comment: "New irregular event")
          }
 
          parametersTableView.dataSource = self
@@ -520,8 +520,8 @@ extension TrackerFormViewController: UICollectionViewDelegateFlowLayout {
         
         var label: String
         switch collectionView {
-        case emojisCollection: label = "Emoji"
-        case colorsCollection: label = "Цвет"
+        case emojisCollection: label = NSLocalizedString("TrackerFormViewController.emoji", comment: "Emoji")
+        case colorsCollection: label = NSLocalizedString("TrackerFormViewController.color", comment: "Color")
         default: label = ""
         }
         

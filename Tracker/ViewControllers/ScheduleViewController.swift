@@ -65,7 +65,7 @@ final class ScheduleViewController: UIViewController {
 
 private extension ScheduleViewController {
     func configureViews() {
-        title = "Расписание"
+        title = NSLocalizedString("SetTrackersViewController.parameter2", comment: "Schedule")
         view.backgroundColor = .ypWhiteDay
         [weekdaysTableView, confirmButton].forEach { view.addSubview($0) }
         
