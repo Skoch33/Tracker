@@ -33,6 +33,8 @@
 		37B552D82AAC73270006E3B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37B552DA2AAC73270006E3B0 /* InfoPlist.strings */; };
 		37B552DB2AAC73290006E3B0 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 37B552DD2AAC73290006E3B0 /* Localizable.stringsdict */; };
 		37B552DE2AAC732C0006E3B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37B552E02AAC732C0006E3B0 /* Localizable.strings */; };
+		37B552E52AB5B9560006E3B0 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B552E42AB5B9560006E3B0 /* StatisticViewModel.swift */; };
+		37B552E82AB5BB0A0006E3B0 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B552E72AB5BB0A0006E3B0 /* StatisticView.swift */; };
 		37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */; };
 		37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */; };
 		37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */; };
@@ -83,6 +85,8 @@
 		37B552E12AAC733C0006E3B0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37B552E22AAC733C0006E3B0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		37B552E32AAC733C0006E3B0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		37B552E42AB5B9560006E3B0 /* StatisticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewModel.swift; sourceTree = "<group>"; };
+		37B552E72AB5BB0A0006E3B0 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Int+Extension.swift"; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				37B5527B2AA739CE0006E3B0 /* CategoriesViewModel.swift */,
 				37B5527F2AA73C420006E3B0 /* CategoriesViewController.swift */,
 				37B552812AA786C10006E3B0 /* CategoryFormViewController.swift */,
+				37B552E42AB5B9560006E3B0 /* StatisticViewModel.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				37EBD87D2A8CCE44005DE684 /* EmojiCell.swift */,
 				37EBD87F2A8CD4D7005DE684 /* ColorCell.swift */,
 				37B5527D2AA73A6C0006E3B0 /* CategoryCell.swift */,
+				37B552E72AB5BB0A0006E3B0 /* StatisticView.swift */,
 			);
 			path = " Cells";
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 				37DD6FC72A80E03200258601 /* TrackerFormViewController.swift in Sources */,
 				37EBD8802A8CD4D7005DE684 /* ColorCell.swift in Sources */,
 				37EBD87E2A8CCE44005DE684 /* EmojiCell.swift in Sources */,
+				37B552E52AB5B9560006E3B0 /* StatisticViewModel.swift in Sources */,
 				37DD6FC12A80DF1600258601 /* ScheduleViewController.swift in Sources */,
 				37A796012A7A6ACA0015CE16 /* TrackerRecord.swift in Sources */,
 				37EBD87C2A8CCD24005DE684 /* Model.xcdatamodeld in Sources */,
@@ -350,6 +357,7 @@
 				37A795F52A77E4A40015CE16 /* Emoji.swift in Sources */,
 				37A796092A7A6D890015CE16 /* TrackerCategoryNames.swift in Sources */,
 				37B552782AA3324D0006E3B0 /* OnboardingViewController.swift in Sources */,
+				37B552E82AB5BB0A0006E3B0 /* StatisticView.swift in Sources */,
 				37EBD8842A937E55005DE684 /* TrackerCategoryStore.swift in Sources */,
 				37A795EE2A77DA500015CE16 /* TapBarViewController.swift in Sources */,
 				37DD6FC52A80DFFA00258601 /* TrackerTextField.swift in Sources */,

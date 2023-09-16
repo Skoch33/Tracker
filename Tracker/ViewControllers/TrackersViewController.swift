@@ -90,6 +90,7 @@ final class TrackersViewController: UIViewController {
     private let trackerStore = TrackerStore()
     private let trackerCategoryStore = TrackerCategoryStore()
     private let trackerRecordStore = TrackerRecordStore()
+    private var editingTracker: Tracker?
                      
     // MARK: - Lifecycle
     
@@ -156,6 +157,18 @@ final class TrackersViewController: UIViewController {
             filterButton.isHidden = false
         }
     }
+    
+    private func presentFormController(
+        with data: Tracker.Data? = nil,
+        of trackerType: SetTrackersViewController.TrackerType,
+        setAction: TrackerFormViewController.ActionType
+    ) {
+        let trackerFormViewController = TrackerFormViewController(ActionType: setAction, trackerType: trackerType, data: data)
+        trackerFormViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: trackerFormViewController)
+        navigationController.isModalInPresentation = true
+        present(navigationController, animated: true)
+    }
 }
 
     //MARK: - Layout methods
@@ -207,6 +220,50 @@ private extension TrackersViewController {
     }
 }
 
+extension TrackersViewController: UIContextMenuInteractionDelegate {
+    
+    func contextMenuInteraction(
+        _ interaction: UIContextMenuInteraction,
+        configurationForMenuAtLocation location: CGPoint
+    ) -> UIContextMenuConfiguration? {
+        guard
+            let location = interaction.view?.convert(location, to: collectionView),
+            let indexPath = collectionView.indexPathForItem(at: location),
+            let tracker = trackerStore.tracker(at: indexPath)
+        else { return nil }
+        
+        return UIContextMenuConfiguration(actionProvider:  { actions in
+            UIMenu(children: [
+                UIAction(title: tracker.isPinned ?  NSLocalizedString("TrackersViewController.unPin", comment: "Unpin") : NSLocalizedString("TrackersViewController.pin", comment: "Pin")) { [weak self] _ in
+                    try? self?.trackerStore.togglePin(for: tracker)
+                },
+                UIAction(title: NSLocalizedString("SetCategoriesViewController.edit", comment: "Edit")) { [weak self] _ in
+                    let type: SetTrackersViewController.TrackerType = tracker.schedule != nil ? .habit : .irregularEvent
+                    self?.editingTracker = tracker
+                    self?.presentFormController(with: tracker.data, of: type, setAction: .edit)
+                },
+                UIAction(title: NSLocalizedString("SetCategoriesViewController.delete", comment: "Delete"), attributes: .destructive) { [weak self] _ in
+                    let alert = UIAlertController(
+                        title: nil,
+                        message: NSLocalizedString("TrackersViewController.deleteTracker", comment: "Delete tracker"),
+                        preferredStyle: .actionSheet
+                    )
+                    let cancelAction = UIAlertAction(title: NSLocalizedString("TrackerFormViewController.cancel", comment: "Cancel"), style: .cancel)
+                    let deleteAction = UIAlertAction(title: NSLocalizedString("SetCategoriesViewController.delete", comment: "Delete"), style: .destructive) { [weak self] _ in
+                        guard let self else { return }
+                        try? trackerStore.deleteTracker(tracker)
+                    }
+                    
+                    alert.addAction(deleteAction)
+                    alert.addAction(cancelAction)
+                    
+                    self?.present(alert, animated: true)
+                }
+            ])
+        })
+    }
+}
+
     //MARK: - UICollectionViewDelegate
 extension TrackersViewController: UICollectionViewDelegate {
     
@@ -229,7 +286,8 @@ extension TrackersViewController: UICollectionViewDataSource {
         }
 
         let isCompleted = completedTrackers.contains { $0.date == currentDate && $0.trackerId == tracker.id }
-        trackerCell.configure(with: tracker, days: tracker.endedDaysCount, isCompleted: isCompleted)
+        let interaction = UIContextMenuInteraction(delegate: self)
+        trackerCell.configure(with: tracker, days: tracker.endedDaysCount, isCompleted: isCompleted, interaction: interaction)
         trackerCell.delegate = self
         return trackerCell
     }
@@ -304,20 +362,26 @@ extension TrackersViewController: UICollectionViewDelegateFlowLayout {
 extension TrackersViewController: SetTrackersViewControllerDelegate {
     func didSelectTracker(with type: SetTrackersViewController.TrackerType) {
         dismiss(animated: true)
-        let trackerFormViewController = TrackerFormViewController(type: type)
-        trackerFormViewController.delegate = self
-        let navigationController = UINavigationController(rootViewController: trackerFormViewController)
-        present(navigationController, animated: true)
+        presentFormController(of: type, setAction: .add)
     }
 }
 
 extension TrackersViewController: TrackerFormViewControllerDelegate {
-    func didTapConfirmButton(category: TrackerCategory, trackerToAdd: Tracker) {
+    func didAddTracker(category: TrackerCategory, trackerToAdd: Tracker) {
         dismiss(animated: true)
         try? trackerStore.addTracker(trackerToAdd, with: category)
     }
     
+    func didUpdateTracker(with data: Tracker.Data) {
+        guard let editingTracker else { return }
+        dismiss(animated: true)
+        try? trackerStore.updateTracker(editingTracker, with: data)
+        self.editingTracker = nil
+    }
+    
     func didTapCancelButton() {
+        collectionView.reloadData()
+        editingTracker = nil
         dismiss(animated: true)
     }
 }

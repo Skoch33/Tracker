@@ -31,6 +31,9 @@
 "TrackersViewController.filters" = "Фильтры";
 "TrackersViewController.nothingFound" = "Ничего не найдено";
 "TrackersViewController.datePicker" = "ru_RU";
+"TrackersViewController.deleteTracker" = "Уверены что хотите удалить трекер?";
+"TrackersViewController.pin" = "Закрепить";
+"TrackersViewController.unPin" = "Открепить";
 
 // StatisticViewController
 "StatisticViewController.title" = "Статистика";
@@ -58,6 +61,7 @@
 "TrackerFormViewController.scheduleString" = "Каждый день";
 "TrackerFormViewController.emoji" = "Эмоджи";
 "TrackerFormViewController.color" = "Цвет";
+"TrackerFormViewController.editHabit" = "Редактирование привычки";
 
 //SetCategoriesViewController
 "SetCategoriesViewController.addButton" = "Добавить категорию";
@@ -69,3 +73,9 @@
 //CategoryFormViewController
 "CategoryFormViewController.textField" = "Введите название категории";
 "CategoryFormViewController.configureView" = "Новая категория";
+
+//TrackerStore
+"TrackerStore.pin" = "Закрепленные";
+
+//StatisticViewController
+"StatisticViewController.finishedTrackers" = "Трекеров завершено";
