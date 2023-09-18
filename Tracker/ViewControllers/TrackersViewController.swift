@@ -70,6 +70,7 @@ final class TrackersViewController: UIViewController {
         button.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.cornerRadius = 16
         button.backgroundColor = .ypBlue
+        button.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
         return button
     }()
     
@@ -91,6 +92,7 @@ final class TrackersViewController: UIViewController {
     private let trackerCategoryStore = TrackerCategoryStore()
     private let trackerRecordStore = TrackerRecordStore()
     private var editingTracker: Tracker?
+    private let analyticsService = AnalyticsService()
                      
     // MARK: - Lifecycle
     
@@ -118,6 +120,16 @@ final class TrackersViewController: UIViewController {
         checkNumberOfTrackers()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        analyticsService.report(event: .open, params: ["screen": "Main"])
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        analyticsService.report(event: .close, params: ["screen": "Main"])
+    }
+    
     // MARK: - Actions
     
     @objc
@@ -126,6 +138,7 @@ final class TrackersViewController: UIViewController {
         setTrackersViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: setTrackersViewController)
         present(navigationController, animated: true)
+        analyticsService.report(event: .click, params: ["screen": "Main", "item": Items.add_track.rawValue])
     }
     
     @objc
@@ -136,6 +149,11 @@ final class TrackersViewController: UIViewController {
             try trackerRecordStore.loadCompletedTrackers(by: currentDate)
         } catch {}
         collectionView.reloadData()
+    }
+    
+    @objc
+    private func didTapFilterButton() {
+        analyticsService.report(event: .click, params: ["screen": "Main", "item": Items.filter.rawValue])
     }
     
     // MARK: - Methods
@@ -241,6 +259,7 @@ extension TrackersViewController: UIContextMenuInteractionDelegate {
                     let type: SetTrackersViewController.TrackerType = tracker.schedule != nil ? .habit : .irregularEvent
                     self?.editingTracker = tracker
                     self?.presentFormController(with: tracker.data, of: type, setAction: .edit)
+                    self?.analyticsService.report(event: .click, params: ["screen": "Main", "item": Items.edit.rawValue])
                 },
                 UIAction(title: NSLocalizedString("SetCategoriesViewController.delete", comment: "Delete"), attributes: .destructive) { [weak self] _ in
                     let alert = UIAlertController(
@@ -252,6 +271,7 @@ extension TrackersViewController: UIContextMenuInteractionDelegate {
                     let deleteAction = UIAlertAction(title: NSLocalizedString("SetCategoriesViewController.delete", comment: "Delete"), style: .destructive) { [weak self] _ in
                         guard let self else { return }
                         try? trackerStore.deleteTracker(tracker)
+                        self.analyticsService.report(event: .click, params: ["screen": "Main", "item": Items.delete.rawValue])
                     }
                     
                     alert.addAction(deleteAction)

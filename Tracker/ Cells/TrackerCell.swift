@@ -72,6 +72,8 @@ final class TrackerCell: UICollectionViewCell {
         }
     }
     
+    private let analyticsService = AnalyticsService()
+    
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -128,6 +130,7 @@ final class TrackerCell: UICollectionViewCell {
     
     @objc
     private func didTapAddDayButton() {
+        analyticsService.report(event: .click, params: ["screen" : "Main", "item" : Items.track.rawValue])
         guard let tracker else { return }
         delegate?.didTapCompleteButton(of: self, with: tracker)
     }
