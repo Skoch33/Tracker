@@ -54,6 +54,7 @@ final class StatisticView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        setupBorder()
     }
     
     // MARK: - Functions
@@ -72,6 +73,16 @@ extension StatisticView {
     func configureViews() {
         translatesAutoresizingMaskIntoConstraints = false
         [numberLabel, nameLabel].forEach { addSubview($0) }
+    }
+    
+    func setupBorder() {
+        gradientBorder(
+            width: 1,
+            colors: UIColor.gradient,
+            startPoint: .unitCoordinate(.left),
+            endPoint: .unitCoordinate(.right),
+            andRoundCornersWithRadius: 12
+        )
     }
     
     func configureConstraints() {
