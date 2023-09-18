@@ -14,6 +14,14 @@ final class TabBarViewController: UITabBarController {
         
         UserDefaults.standard.set(true, forKey: "visitedBefore")
         
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .ypWhiteDay
+        tabBar.standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        }
+        
         tabBar.tintColor = .ypBlue
         tabBar.barTintColor = .ypGray
         tabBar.backgroundColor = .ypWhiteDay

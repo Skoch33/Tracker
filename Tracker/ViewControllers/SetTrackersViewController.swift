@@ -16,7 +16,8 @@ final class SetTrackersViewController: UIViewController {
     
     private lazy var  habitButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .black
+        button.backgroundColor = .ypBlackDay
+        button.setTitleColor(.ypBlackNight, for: .normal)
         button.setTitle(NSLocalizedString("SetTrackersViewController.habitButton", comment: "Habit"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.layer.cornerRadius = 16
@@ -26,7 +27,8 @@ final class SetTrackersViewController: UIViewController {
 
     private lazy var  irregularEventButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .black
+        button.backgroundColor = .ypBlackDay
+        button.setTitleColor(.ypBlackNight, for: .normal)
         button.setTitle(NSLocalizedString("SetTrackersViewController.irregularEventButton", comment: "Irregular event"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.layer.cornerRadius = 16

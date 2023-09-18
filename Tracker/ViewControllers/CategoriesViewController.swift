@@ -31,6 +31,7 @@ import UIKit
      private lazy var addButton: UIButton = {
          let button = UIButton()
          button.setTitle(NSLocalizedString("SetCategoriesViewController.addButton", comment: "Add category"), for: .normal)
+         button.setTitleColor(.ypBlackNight, for: .normal)
          button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
          button.layer.cornerRadius = 16
          button.backgroundColor = .ypBlackDay

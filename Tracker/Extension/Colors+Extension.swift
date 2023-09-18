@@ -10,7 +10,7 @@ import UIKit
 extension UIColor {
     
     static var ypBlackDay: UIColor { UIColor(named: "BlackDay")!}
-    static var ypBlackNigth: UIColor { UIColor(named: "BlackNight")!}
+    static var ypBlackNight: UIColor { UIColor(named: "BlackNight")!}
     static var ypWhiteDay: UIColor { UIColor(named: "WhiteDay")!}
     static var ypWhiteNight: UIColor { UIColor(named: "WhiteNight")!}
     static var ypBlue: UIColor { UIColor(named: "Blue")!}
