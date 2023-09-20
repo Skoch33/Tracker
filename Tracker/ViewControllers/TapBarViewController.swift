@@ -23,12 +23,6 @@ final class TabBarViewController: UITabBarController {
         }
         
         tabBar.tintColor = .ypBlue
-        tabBar.barTintColor = .ypGray
-        tabBar.backgroundColor = .ypWhiteDay
-        
-        tabBar.layer.borderColor = UIColor.ypLightGray.cgColor
-        tabBar.layer.borderWidth = 1
-        tabBar.layer.masksToBounds = true
         
         let trackerStore = TrackerStore()
         let trackersViewController = TrackersViewController(trackerStore: trackerStore)
