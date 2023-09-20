@@ -479,7 +479,7 @@ extension TrackerFormViewController: UICollectionViewDataSource {
             colorCell.configure(with: color)
             if
                 let dataColor = data.color,
-                UIColorMarshalling.serialize(color: color ?? .ypRed) == UIColorMarshalling.serialize(color: dataColor)
+                UIColorMarshalling.serialize(color: color ) == UIColorMarshalling.serialize(color: dataColor)
             {
                 colorCell.select()
                 colorsCollection.selectItem(

@@ -14,6 +14,7 @@ import UIKit
      private let label: UILabel = {
          let label = UILabel()
          label.textColor = .ypBlackDay
+         label.tintColor = .ypBlue
          label.font = UIFont.systemFont(ofSize: 17)
          return label
      }()
@@ -21,6 +22,7 @@ import UIKit
      private let checkmarkImage: UIImageView = {
          let imageView = UIImageView()
          imageView.image = UIImage(systemName: "checkmark")
+         imageView.tintColor = .ypBlue
          return imageView
      }()
 

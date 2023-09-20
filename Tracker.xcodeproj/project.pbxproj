@@ -37,6 +37,8 @@
 		37B552DE2AAC732C0006E3B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37B552E02AAC732C0006E3B0 /* Localizable.strings */; };
 		37B552E52AB5B9560006E3B0 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B552E42AB5B9560006E3B0 /* StatisticViewModel.swift */; };
 		37B552E82AB5BB0A0006E3B0 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B552E72AB5BB0A0006E3B0 /* StatisticView.swift */; };
+		37C47FE82ABAFCA1006C6759 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 37C47FE72ABAFCA1006C6759 /* InlineSnapshotTesting */; };
+		37C47FEA2ABAFCA1006C6759 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 37C47FE92ABAFCA1006C6759 /* SnapshotTesting */; };
 		37DD6FB62A7CEA4D00258601 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB52A7CEA4D00258601 /* UILabel+Extension.swift */; };
 		37DD6FB82A7CEAA500258601 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FB72A7CEAA500258601 /* UIStackView+Extension.swift */; };
 		37DD6FBB2A7CF40F00258601 /* Date Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD6FBA2A7CF40F00258601 /* Date Int+Extension.swift */; };
@@ -141,6 +143,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C47FEA2ABAFCA1006C6759 /* SnapshotTesting in Frameworks */,
+				37C47FE82ABAFCA1006C6759 /* InlineSnapshotTesting in Frameworks */,
 				D58E99D3C4E6122C5DC31887 /* Pods_TrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +186,7 @@
 			children = (
 				37B552D12AAC72F70006E3B0 /* Resource */,
 				37A795EC2A77DA160015CE16 /* ViewControllers */,
+				37C47FD92ABAF044006C6759 /* Models */,
 				37EBD8792A8CCD0D005DE684 /* CoreData */,
 				37A795FF2A7A6A9E0015CE16 /* UIHelpers */,
 				37A796052A7A6D120015CE16 /* Tracker */,
@@ -225,10 +230,8 @@
 				37DD6FC62A80E03200258601 /* TrackerFormViewController.swift */,
 				37B552772AA3324D0006E3B0 /* OnboardingViewController.swift */,
 				37B552792AA332C10006E3B0 /* OnboardingPageViewController.swift */,
-				37B5527B2AA739CE0006E3B0 /* CategoriesViewModel.swift */,
 				37B5527F2AA73C420006E3B0 /* CategoriesViewController.swift */,
 				37B552812AA786C10006E3B0 /* CategoryFormViewController.swift */,
-				37B552E42AB5B9560006E3B0 /* StatisticViewModel.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				37A796002A7A6ACA0015CE16 /* TrackerRecord.swift */,
 				37A796022A7A6AD50015CE16 /* WeekDay.swift */,
 				37DD6FBE2A80DE0F00258601 /* ListOfItems.swift */,
+				37B552E72AB5BB0A0006E3B0 /* StatisticView.swift */,
 			);
 			path = UIHelpers;
 			sourceTree = "<group>";
@@ -254,7 +258,6 @@
 				37EBD87D2A8CCE44005DE684 /* EmojiCell.swift */,
 				37EBD87F2A8CD4D7005DE684 /* ColorCell.swift */,
 				37B5527D2AA73A6C0006E3B0 /* CategoryCell.swift */,
-				37B552E72AB5BB0A0006E3B0 /* StatisticView.swift */,
 			);
 			path = " Cells";
 			sourceTree = "<group>";
@@ -288,6 +291,15 @@
 				37B552DA2AAC73270006E3B0 /* InfoPlist.strings */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		37C47FD92ABAF044006C6759 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				37B5527B2AA739CE0006E3B0 /* CategoriesViewModel.swift */,
+				37B552E42AB5B9560006E3B0 /* StatisticViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		37EBD8792A8CCD0D005DE684 /* CoreData */ = {
@@ -332,6 +344,8 @@
 			dependencies = (
 			);
 			name = Tracker;
+			packageProductDependencies = (
+			);
 			productName = Tracker;
 			productReference = 376A183A2A72717E008CBFE7 /* Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -351,6 +365,10 @@
 				378278292AB8602D0052026A /* PBXTargetDependency */,
 			);
 			name = TrackerTests;
+			packageProductDependencies = (
+				37C47FE72ABAFCA1006C6759 /* InlineSnapshotTesting */,
+				37C47FE92ABAFCA1006C6759 /* SnapshotTesting */,
+			);
 			productName = TrackerTests;
 			productReference = 378278242AB8602D0052026A /* TrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -384,6 +402,9 @@
 				ru,
 			);
 			mainGroup = 376A18312A72717E008CBFE7;
+			packageReferences = (
+				37C47FE62ABAFCA1006C6759 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 376A183B2A72717E008CBFE7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -832,6 +853,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37C47FE62ABAFCA1006C6759 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37C47FE72ABAFCA1006C6759 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37C47FE62ABAFCA1006C6759 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		37C47FE92ABAFCA1006C6759 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37C47FE62ABAFCA1006C6759 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		37EBD87A2A8CCD24005DE684 /* Model.xcdatamodeld */ = {
