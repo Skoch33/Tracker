@@ -12,12 +12,12 @@ import SnapshotTesting
 final class TrackerTests: XCTestCase {
     func testTrackersViewControllerSnapshot() throws {
         let vc = TrackersViewController(trackerStore: StubTrackerStore())
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)))
+        assertSnapshot(matching: vc, as: .image(traits: UITraitCollection(userInterfaceStyle: .light)))
     }
     
     func testTrackersViewControllerDarkSnapshot() throws {
         let vc = TrackersViewController(trackerStore: StubTrackerStore())
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)))
+        assertSnapshot(matching: vc, as: .image(traits: UITraitCollection(userInterfaceStyle: .dark)))
     }
 }
 

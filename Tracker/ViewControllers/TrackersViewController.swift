@@ -147,7 +147,7 @@ final class TrackersViewController: UIViewController {
         setTrackersViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: setTrackersViewController)
         present(navigationController, animated: true)
-        analyticsService.report(event: .click, params: ["screen": "Main", "item": Items.add_track.rawValue])
+        analyticsService.report(event: .click, params: ["screen": "Main", "item": Items.addtrack.rawValue])
     }
     
     @objc

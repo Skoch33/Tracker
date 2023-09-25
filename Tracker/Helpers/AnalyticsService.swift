@@ -31,7 +31,7 @@ enum Events: String, CaseIterable {
 }
 
 enum Items: String, CaseIterable {
-    case add_track = "add_track"
+    case addtrack = "addtrack"
     case track = "track"
     case filter = "filter"
     case edit = "edit"
