@@ -36,6 +36,7 @@ final class TrackersViewController: UIViewController {
         datePicker.locale = Locale(identifier: NSLocalizedString("TrackersViewController.datePicker", comment: "date"))
         datePicker.calendar = Calendar(identifier: .iso8601)
         datePicker.addTarget(self, action: #selector(didChangedDatePicker), for: .valueChanged)
+        currentDate = Calendar.current.startOfDay(for: datePicker.date)
         return datePicker
     }()
     
