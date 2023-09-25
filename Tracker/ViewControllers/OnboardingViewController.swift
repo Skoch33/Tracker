@@ -9,22 +9,25 @@ import UIKit
 
 final class OnboardingViewController: UIPageViewController {
     
-// MARK: - UI Lazy properties
+    // MARK: - UI Lazy properties
     
     private lazy var pages: [UIViewController] = {
         let firstPage = OnboardingPageViewController()
         firstPage.backgroundImage.image = UIImage(named: "OnboardingBackground_1")
-        firstPage.label.text = "Отслеживайте только то, что хотите"
+        firstPage.label.text = NSLocalizedString("OnboardingViewController.firstPage", comment: "")
+        firstPage.label.textColor = .black
         let secondPage = OnboardingPageViewController()
         secondPage.backgroundImage.image = UIImage(named: "OnboardingBackground_2")
-        secondPage.label.text = "Даже если это не литры воды и йога"
+        secondPage.label.text = NSLocalizedString("OnboardingViewController.secondPage", comment: "")
+        secondPage.label.textColor = .black
         return [firstPage, secondPage]
     }()
     
     private lazy var enterButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .ypBlackDay
-        button.setTitle("Вот это технологии!", for: .normal)
+        button.backgroundColor = .black
+        button.setTitle(NSLocalizedString("OnboardingViewController.enterButton", comment: ""), for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.layer.cornerRadius = 16
         button.addTarget(nil, action: #selector(buttonTapped), for: .touchUpInside)
@@ -38,8 +41,8 @@ final class OnboardingViewController: UIPageViewController {
         control.currentPageIndicatorTintColor = .ypBlackDay
         return control
     }()
-        
-//MARK: - Lifecycle
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +50,7 @@ final class OnboardingViewController: UIPageViewController {
         configureConstraints()
     }
     
-// MARK: - Actions
+    // MARK: - Actions
     
     @objc
     private func buttonTapped() {
@@ -72,7 +75,7 @@ extension OnboardingViewController {
         if let first = pages.first {
             setViewControllers([first], direction: .forward, animated: true)
         }
-
+        
         [pageControl, enterButton].forEach { view.addSubview($0) }
         enterButton.translatesAutoresizingMaskIntoConstraints = false
         pageControl.translatesAutoresizingMaskIntoConstraints = false

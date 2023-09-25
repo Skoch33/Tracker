@@ -9,39 +9,39 @@ import UIKit
 import CoreData
 
 protocol TrackerCategoryStoreDelegate: AnyObject {
-     func didUpdate()
- }
+    func didUpdate()
+}
 
 final class TrackerCategoryStore: NSObject {
     
-// MARK: - Properties
+    // MARK: - Properties
     
     weak var delegate: TrackerCategoryStoreDelegate?
-         var categoriesCoreData: [TrackerCategoryCD] {
-             fetchedResultsController.fetchedObjects ?? []
-         }
+    var categoriesCoreData: [TrackerCategoryCD] {
+        fetchedResultsController.fetchedObjects ?? []
+    }
     
     var categories = [TrackerCategory]()
     
     private let context: NSManagedObjectContext
     
     private lazy var fetchedResultsController: NSFetchedResultsController<TrackerCategoryCD> = {
-           let fetchRequest = NSFetchRequest<TrackerCategoryCD>(entityName: "TrackerCategoryCD")
-           fetchRequest.sortDescriptors = [
-               NSSortDescriptor(keyPath: \TrackerCategoryCD.createdAt, ascending: true)
-           ]
-           let fetchedResultsController = NSFetchedResultsController(
-               fetchRequest: fetchRequest,
-               managedObjectContext: context,
-               sectionNameKeyPath: nil,
-               cacheName: nil
-           )
-           fetchedResultsController.delegate = self
-           try? fetchedResultsController.performFetch()
-           return fetchedResultsController
-       }()
-
-// MARK: - Lifecycle
+        let fetchRequest = NSFetchRequest<TrackerCategoryCD>(entityName: "TrackerCategoryCD")
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \TrackerCategoryCD.createdAt, ascending: true)
+        ]
+        let fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: context,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+        fetchedResultsController.delegate = self
+        try? fetchedResultsController.performFetch()
+        return fetchedResultsController
+    }()
+    
+    // MARK: - Lifecycle
     
     convenience override init() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -54,7 +54,7 @@ final class TrackerCategoryStore: NSObject {
         
     }
     
-// MARK: - Methods
+    // MARK: - Methods
     
     func categoryCD(with id: UUID) throws -> TrackerCategoryCD {
         let request = NSFetchRequest<TrackerCategoryCD>(entityName: "TrackerCategoryCD")
@@ -105,7 +105,7 @@ final class TrackerCategoryStore: NSObject {
         fetchedResultsController.fetchRequest.predicate = nil
         try fetchedResultsController.performFetch()
         return category
-     }
+    }
 }
 
 extension TrackerCategoryStore {
@@ -117,7 +117,7 @@ extension TrackerCategoryStore {
 //MARK: - NSFetchedResultsControllerDelegate
 
 extension TrackerCategoryStore: NSFetchedResultsControllerDelegate {
-     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-         delegate?.didUpdate()
-     }
- }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        delegate?.didUpdate()
+    }
+}

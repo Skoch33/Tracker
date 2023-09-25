@@ -9,7 +9,7 @@ import UIKit
 
 final class ColorCell: UICollectionViewCell {
     
-// MARK: - Layout elements
+    // MARK: - Layout elements
     
     private let colorView: UIView = {
         let view = UIView()
@@ -18,12 +18,12 @@ final class ColorCell: UICollectionViewCell {
         return view
     }()
     
-// MARK: - Properties
+    // MARK: - Properties
     
     static let identifier = "ColorCell"
     private var color: UIColor?
     
-// MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +36,7 @@ final class ColorCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-// MARK: - Functions
+    // MARK: - Functions
     
     func configure(with color: UIColor) {
         colorView.backgroundColor = color

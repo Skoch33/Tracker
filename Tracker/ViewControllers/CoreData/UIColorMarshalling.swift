@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class UIColorMarshalling {
+struct UIColorMarshalling {
     
     static func serialize(color: UIColor) -> String {
         var r: CGFloat = 0

@@ -57,7 +57,7 @@ final class WeekdayCell: UITableViewCell {
     func configure(with weekday: WeekDay, isSelected: Bool, position: ListOfItems.Position) {
         self.weekday = weekday
         listItem.configure(with: position)
-        nameLabel.text = weekday.rawValue
+        nameLabel.text = weekday.fullName
         switchView.isOn = isSelected
     }
 }
@@ -70,7 +70,7 @@ private extension WeekdayCell {
         listItem.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         switchView.translatesAutoresizingMaskIntoConstraints = false
-
+        
     }
     
     func setupConstraints() {
