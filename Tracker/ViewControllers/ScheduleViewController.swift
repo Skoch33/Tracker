@@ -35,7 +35,7 @@ final class ScheduleViewController: UIViewController {
     // MARK: - Properties
     weak var delegate: ScheduleViewControllerDelegate?
     private var selectedWeekdays: Set<WeekDay> = []
-
+    
     // MARK: - Lifecycle
     init(selectedWeekdays: [WeekDay]) {
         self.selectedWeekdays = Set(selectedWeekdays)
@@ -72,7 +72,7 @@ private extension ScheduleViewController {
         
         weekdaysTableView.translatesAutoresizingMaskIntoConstraints = false
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
-
+        
         weekdaysTableView.dataSource = self
         weekdaysTableView.delegate = self
     }

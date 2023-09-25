@@ -136,7 +136,7 @@ final class TrackerCell: UICollectionViewCell {
     }
 }
 
-    // MARK: - Layout methods
+// MARK: - Layout methods
 
 private extension TrackerCell {
     func configureViews() {

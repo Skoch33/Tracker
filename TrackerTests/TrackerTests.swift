@@ -61,7 +61,7 @@ extension TrackerTests {
                 )
             ]
         ]
-                
+        
         func numberOfRowsInSection(_ section: Int) -> Int {
             switch section {
             case 0: return 1

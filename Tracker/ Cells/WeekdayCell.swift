@@ -70,7 +70,7 @@ private extension WeekdayCell {
         listItem.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         switchView.translatesAutoresizingMaskIntoConstraints = false
-
+        
     }
     
     func setupConstraints() {

@@ -1,10 +1,10 @@
 /* 
-  Localizable.strings
-  Tracker
-
-  Created by Semen Kocherga on 9.09.2023.
-  
-*/
+ Localizable.strings
+ Tracker
+ 
+ Created by Semen Kocherga on 9.09.2023.
+ 
+ */
 
 //ScheduleViewController
 "TrackerFormViewController.ready" = "Done";

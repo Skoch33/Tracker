@@ -16,17 +16,17 @@ struct Tracker: Identifiable {
     let isPinned: Bool
     let endedDaysCount: Int
     let schedule: [WeekDay]?
-
+    
     init(id: UUID = UUID(), label: String, emoji: String, color: UIColor, category: TrackerCategory, isPinned: Bool, endedDaysCount: Int, schedule: [WeekDay]?) {
-         self.id = id
-         self.label = label
-         self.emoji = emoji
-         self.color = color
-         self.category = category
-         self.endedDaysCount = endedDaysCount
-         self.isPinned = isPinned
-         self.schedule = schedule
-     }
+        self.id = id
+        self.label = label
+        self.emoji = emoji
+        self.color = color
+        self.category = category
+        self.endedDaysCount = endedDaysCount
+        self.isPinned = isPinned
+        self.schedule = schedule
+    }
     
     init(tracker: Tracker) {
         self.id = tracker.id

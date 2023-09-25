@@ -81,13 +81,13 @@ private extension StatisticViewController {
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
-        statisticLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-        statisticLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.1083),
-        mainSpacePlaceholderStack.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.495),
-        mainSpacePlaceholderStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        statisticsStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-        statisticsStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-        statisticsStack.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
+            statisticLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            statisticLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.1083),
+            mainSpacePlaceholderStack.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.495),
+            mainSpacePlaceholderStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            statisticsStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            statisticsStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            statisticsStack.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         ])
     }
 }

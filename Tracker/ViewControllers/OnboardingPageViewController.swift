@@ -9,7 +9,7 @@ import UIKit
 
 final class OnboardingPageViewController: UIViewController {
     
-// MARK: - UI Lazy properties
+    // MARK: - UI Lazy properties
     
     lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView()
@@ -26,7 +26,7 @@ final class OnboardingPageViewController: UIViewController {
         return label
     }()
     
-//MARK: - Lifecycle
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

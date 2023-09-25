@@ -28,7 +28,7 @@ protocol TrackerStoreProtocol {
 
 final class TrackerStore: NSObject {
     
-// MARK: - Properties
+    // MARK: - Properties
     
     weak var delegate: TrackerStoreDelegate?
     

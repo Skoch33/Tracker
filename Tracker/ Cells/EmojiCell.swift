@@ -9,7 +9,7 @@ import UIKit
 
 final class EmojiCell: UICollectionViewCell {
     
-// MARK: - Layout elements
+    // MARK: - Layout elements
     
     private let emojiLabel: UILabel = {
         let label = UILabel()
@@ -17,11 +17,11 @@ final class EmojiCell: UICollectionViewCell {
         return label
     }()
     
-// MARK: - Properties
+    // MARK: - Properties
     
     static let identifier = "EmojiCell"
     
-// MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +34,7 @@ final class EmojiCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-// MARK: - Functions
+    // MARK: - Functions
     
     func configure(with label: String) {
         emojiLabel.text = label

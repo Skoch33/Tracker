@@ -24,7 +24,7 @@ final class SetTrackersViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapHabitButton), for: .touchUpInside)
         return button
     }()
-
+    
     private lazy var  irregularEventButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .ypBlackDay
@@ -35,8 +35,8 @@ final class SetTrackersViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapIrregularEventButton), for: .touchUpInside)
         return button
     }()
-
-   private let stackView: UIStackView = {
+    
+    private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 16
@@ -84,18 +84,18 @@ final class SetTrackersViewController: UIViewController {
     }
 }
 
-    // MARK: - Choice
+// MARK: - Choice
 
 extension SetTrackersViewController {
-   enum TrackerType {
-       case habit, irregularEvent
-   }
+    enum TrackerType {
+        case habit, irregularEvent
+    }
 }
 
 // MARK: - Layout methods
 
 private extension SetTrackersViewController {
-
+    
     func configureViews() {
         title = NSLocalizedString("SetTrackersViewController.configureViews", comment: "Creating a tracker")
         view.backgroundColor = .ypWhiteDay

@@ -9,7 +9,7 @@ import UIKit
 
 final class OnboardingViewController: UIPageViewController {
     
-// MARK: - UI Lazy properties
+    // MARK: - UI Lazy properties
     
     private lazy var pages: [UIViewController] = {
         let firstPage = OnboardingPageViewController()
@@ -41,8 +41,8 @@ final class OnboardingViewController: UIPageViewController {
         control.currentPageIndicatorTintColor = .ypBlackDay
         return control
     }()
-        
-//MARK: - Lifecycle
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ final class OnboardingViewController: UIPageViewController {
         configureConstraints()
     }
     
-// MARK: - Actions
+    // MARK: - Actions
     
     @objc
     private func buttonTapped() {
@@ -75,7 +75,7 @@ extension OnboardingViewController {
         if let first = pages.first {
             setViewControllers([first], direction: .forward, animated: true)
         }
-
+        
         [pageControl, enterButton].forEach { view.addSubview($0) }
         enterButton.translatesAutoresizingMaskIntoConstraints = false
         pageControl.translatesAutoresizingMaskIntoConstraints = false

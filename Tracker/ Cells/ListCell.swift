@@ -78,7 +78,7 @@ private extension ListCell {
         labelsStack.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
-
+        
     }
     
     func configureConstraints() {
